@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <style>
+      #progress {
+        width: 100%;
+        height: 5px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        padding: 0;
+        margin: 0;
+      }
+
+      #progress .inner {
+        width: 0;
+        height: inherit;
+        background-color: #ff0000;
+      }
+    </style>
+  </head>
+
+  <body>
+    <button id="make_request">Make Request</button>
+
+    <script src="reqt.js"></script>
+    <script>
+      var make_request = function () {
+        for(var i=0;i<10;++i) {
+          $.ajax({ url: "index.html?" + i });
+        }
+      };
+
+      make_request();
+      $("#make_request").on("click", function (e) { make_request(); });
+    </script>
+  </body>
+
+
+</html>
+
